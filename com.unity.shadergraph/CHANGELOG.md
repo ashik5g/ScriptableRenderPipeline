@@ -46,6 +46,12 @@ Note: This functionality requires that you have enabled **two sided** on the Mas
 
 This adds gradient functionality via two new nodes. The Sample Gradient node samples a gradient given a Time parameter. You can define this gradient on the Gradient slot control view. The Gradient Asset node defines a gradient that can be sampled by multiple Sample Gradient nodes using different Time parameters.
 
+## Normal Derive Nodes
+
+![](.data/normal_derive_nodes.png)
+
+This adds two new nodes for deriving normals. `Normal From Value` will take in Vector1 input and derive a normal map from that input. This normal map can be output in tangent space or world space based on the drop down menu.  `Normal Derive Z` will derive the proper Z value for a normal map given the X and Y components in a Vector2 input.
+
 ### Texture3D and Texture2D Array
 
 ![](.data/texture_nodes.png)
