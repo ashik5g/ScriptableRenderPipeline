@@ -102,6 +102,34 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         [SerializeField]
         public DiffusionProfileSettings diffusionProfileSettings;
 
+        [System.NonSerialized]
+        string[] m_RenderingLayerNames = null;
+        string[] renderingLayerNames
+        {
+            get
+            {
+                if (m_RenderingLayerNames == null)
+                {
+                    m_RenderingLayerNames = new string[32];
+
+                    // Default Names
+                    for (int i = 0; i < m_RenderingLayerNames.Length; ++i)
+                    {
+                        m_RenderingLayerNames[i] = string.Format("Unused {0}", i + 1);
+                    }
+
+                    m_RenderingLayerNames[0] = "Default";
+                }
+
+                return m_RenderingLayerNames;
+            }
+        }
+
+        public override string[] GetRenderingLayerMaskNames()
+        {
+            return renderingLayerNames;
+        }
+
         public override Shader GetDefaultShader()
         {
             return m_RenderPipelineResources.defaultShader;
