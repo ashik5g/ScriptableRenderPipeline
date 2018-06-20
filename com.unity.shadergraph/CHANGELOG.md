@@ -50,7 +50,7 @@ This adds gradient functionality via two new nodes. The Sample Gradient node sam
 
 ![](.data/wave_form_nodes.png)
 
-This adds a new category to the math nodes: Waves. There are four new nodes to create four different wave forms: Triangle wave, Sawtooth wave, Square wave, and a Noise wave. The Triangle, Sawtooth, and Square wave nodes output a waveform with a range of -1 to 1 over a period of 1. THe Noise wave outputs a standard Sine wave range of -1 to 1 and a period of 2 * Pi, with noise applied to amplitude within a determined range for variance.
+This adds a new category to the math nodes: Waves. There are four new nodes to create four different wave forms: Triangle wave, Sawtooth wave, Square wave, and a Noise Sine wave. The Triangle, Sawtooth, and Square wave nodes output a waveform with a range of -1 to 1 over a period of 1. The Noise Sine wave outputs a standard Sine wave range of -1 to 1 and a period of 2 * Pi, with noise applied to amplitude within a determined range for variance.
 
 ### Texture3D and Texture2D Array
 

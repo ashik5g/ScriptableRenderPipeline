@@ -3,25 +3,25 @@ using System.Reflection;
 
 namespace UnityEditor.ShaderGraph
 {
-    [Title("Math", "Wave", "Noise Wave")]
-    class NoiseWaveNode : CodeFunctionNode
+    [Title("Math", "Wave", "Noise Sine Wave")]
+    class NoiseSineWaveNode : CodeFunctionNode
     {
-        public NoiseWaveNode()
+        public NoiseSineWaveNode()
         {
-            name = "Noise Wave";
+            name = "Noise Sine Wave";
         }
 
         public override string documentationURL
         {
-            get { return "https://github.com/Unity-Technologies/ShaderGraph/wiki/Noise-Wave-Node"; }
+            get { return "https://github.com/Unity-Technologies/ShaderGraph/wiki/Noise-Sine-Wave-Node"; }
         }
 
         protected override MethodInfo GetFunctionToConvert()
         {
-            return GetType().GetMethod("NoiseWave", BindingFlags.Static | BindingFlags.NonPublic);
+            return GetType().GetMethod("NoiseSineWave", BindingFlags.Static | BindingFlags.NonPublic);
         }
 
-        static string NoiseWave(
+        static string NoiseSineWave(
             [Slot(0, Binding.None)] DynamicDimensionVector In,
             [Slot(1, Binding.None, -0.5f, 0.5f, 1, 1)] Vector2 MinMax,
             [Slot(2, Binding.None)] out DynamicDimensionVector Out)
@@ -31,7 +31,7 @@ namespace UnityEditor.ShaderGraph
 {
     float sinIn = sin(In);
     float sinInOffset = sin(In + 1.0);
-    {precision} randomno =  frac(sin(dot(sinIn - sinInOffset, float2(12.9898, 78.233)))*43758.5453);
+    {precision} randomno =  frac(sin((sinIn - sinInOffset) * (12.9898 + 78.233))*43758.5453);
     float noise = lerp(MinMax.x, MinMax.y, randomno);
     Out = sinIn + noise;
 }
