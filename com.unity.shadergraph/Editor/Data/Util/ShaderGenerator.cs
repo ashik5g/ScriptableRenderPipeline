@@ -551,7 +551,7 @@ namespace UnityEditor.ShaderGraph
             if (combinedRequirements.requiresViewDir > 0)
             {
                 var name = preferredCoordinateSpace.ToVariableName(InterpolatorType.ViewDirection);
-                const string worldSpaceViewDir = "SafeNormalize(_WorldSpaceCameraPos.xyz - mul(GetObjectToWorldMatrix(), float4(v.vertex.xyz, 1.0)).xyz)";
+                const string worldSpaceViewDir = "_WorldSpaceCameraPos.xyz - mul(GetObjectToWorldMatrix(), float4(v.vertex.xyz, 1.0)).xyz";
                 var preferredSpaceViewDir = ConvertBetweenSpace(worldSpaceViewDir, CoordinateSpace.World, preferredCoordinateSpace, InputType.Vector);
                 vertexShader.AppendLine("float3 {0} = {1};", name, preferredSpaceViewDir);
                 if (graphModelRequirements.requiresViewDir > 0)
