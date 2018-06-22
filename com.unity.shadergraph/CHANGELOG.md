@@ -50,7 +50,8 @@ This adds gradient functionality via two new nodes. The Sample Gradient node sam
 
 ![](.data/normal_derive_nodes.png)
 
-This adds two new nodes for deriving normals. `Normal From Value` will take in Vector1 input and derive a normal map from that input. This normal map can be output in tangent space or world space based on the drop down menu.  `Normal Derive Z` will derive the proper Z value for a normal map given the X and Y components in a Vector2 input.
+There are two Normal Derive Nodes: `Normal From Height` and `Normal Reconstruct Z`.
+`Normal From Height` uses Vector1 input to derive a normal map. `Normal Reconstruct Z` uses the X and Y components in Vector2 input to derive the proper Z value for a normal map. 
 
 ### Texture3D and Texture2D Array
 
@@ -83,3 +84,4 @@ You can now see the generated code for any specific node. To do so, right-click 
 - Deserialization of subgraphs now works correctly.
 - Sub graphs are now suffixed with (sub), so you can tell them apart from other nodes.
 - The preview of a node does not obstruct the selection outliner anymore.
+- `Normal Create` node has been renamed to `Normal From Texture`.

@@ -13,18 +13,18 @@ namespace UnityEditor.ShaderGraph
         World
     };
 
-    [Title("Artistic", "Normal", "Normal from Value")]
-    public class NormalFromValueNode : AbstractMaterialNode, IGeneratesBodyCode, IGeneratesFunction, IMayRequireTangent, IMayRequireBitangent, IMayRequireNormal, IMayRequirePosition
+    [Title("Artistic", "Normal", "Normal From Height")]
+    public class NormalFromHeightNode : AbstractMaterialNode, IGeneratesBodyCode, IGeneratesFunction, IMayRequireTangent, IMayRequireBitangent, IMayRequireNormal, IMayRequirePosition
     {
-        public NormalFromValueNode()
+        public NormalFromHeightNode()
         {
-            name = "Normal From Value";
+            name = "Normal From Height";
             UpdateNodeAfterDeserialization();
         }
 
         public override string documentationURL
         {
-            get { return "https://github.com/Unity-Technologies/ShaderGraph/wiki/Normal-From-Value-Node"; }
+            get { return "https://github.com/Unity-Technologies/ShaderGraph/wiki/Normal-From-Heightmap-Node"; }
         }
 
         [SerializeField]
@@ -56,7 +56,7 @@ namespace UnityEditor.ShaderGraph
 
         string GetFunctionName()
         {
-            return string.Format("Unity_NormalFromValue_{0}", outputSpace.ToString());
+            return string.Format("Unity_NormalFromHeight_{0}", outputSpace.ToString());
         }
 
         public sealed override void UpdateNodeAfterDeserialization()
