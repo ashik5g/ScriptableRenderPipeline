@@ -520,7 +520,7 @@ namespace UnityEditor.ShaderGraph
                 {
                     vertexOutputStruct.AppendLine("float3 {0} : TEXCOORD{1};", name, interpolatorIndex);
                     vertexShaderOutputs.AppendLine("o.{0} = {0};", name);
-                    pixelShader.AppendLine("float3 {0} = IN.{0};", name);
+                    pixelShader.AppendLine("float3 {0} = normalize(IN.{0});", name);
                     interpolatorIndex++;
                 }
             }
@@ -540,7 +540,7 @@ namespace UnityEditor.ShaderGraph
                 {
                     vertexOutputStruct.AppendLine("float3 {0} : TEXCOORD{1};", name, interpolatorIndex);
                     vertexShaderOutputs.AppendLine("o.{0} = {0};", name);
-                    pixelShader.AppendLine("float3 {0} = IN.{0};", name);
+                    pixelShader.AppendLine("float3 {0} = normalize(IN.{0});", name);
                     interpolatorIndex++;
                 }
             }
